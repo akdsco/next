@@ -135,7 +135,8 @@
 
 	View.prototype._itemId = function (element) {
 		var li = $parent(element, 'li');
-		return parseInt(li.dataset.id, 10);
+		// return parseInt(li.dataset.id, 10);
+		return li.dataset.id;
 	};
 
 	View.prototype._bindItemEditDone = function (handler) {

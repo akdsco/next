@@ -45,6 +45,7 @@
 		}
 
 		var todos = JSON.parse(localStorage[this._dbName]).todos;
+		console.log(todos);
 
 		callback.call(this, todos.filter(function (todo) {
 			for (var q in query) {
@@ -80,18 +81,29 @@
 
 		callback = callback || function () {};
 
-		// Generate an ID
-	    var newId = ""; 
-	    var charset = "0123456789";
+		// New Approach
 
-        for (var i = 0; i < 6; i++) {
-     		newId += charset.charAt(Math.floor(Math.random() * charset.length));
-		}
+		// Math.random should be unique because of its seeding algorithm.
+		// Convert it to base 36 (numbers + letters), and grab the first 9 characters
+		// after the decimal.
+		let newId = '_' + Math.random().toString(36).substr(2, 9);
+
+		// Old Approach
+
+		// Generate an ID
+	  //   var newId = "";
+	  //   var charset = "0123456789";
+		//
+    //     for (var i = 0; i < 6; i++) {
+    //  		newId += charset.charAt(Math.floor(Math.random() * charset.length));
+		// }
 
 		// If an ID was actually given, find the item and update each property
+		console.log('updating id: ', id);
 		if (id) {
 			for (var i = 0; i < todos.length; i++) {
 				if (todos[i].id === id) {
+					console.log('id already exists');
 					for (var key in updateData) {
 						todos[i][key] = updateData[key];
 					}
@@ -104,7 +116,7 @@
 		} else {
 
     		// Assign an ID
-			updateData.id = parseInt(newId);
+			updateData.id = newId;
     
 
 			todos.push(updateData);
@@ -125,13 +137,13 @@
 		var todoId;
 		
 		for (var i = 0; i < todos.length; i++) {
-			if (todos[i].id == id) {
+			if (todos[i].id === id) {
 				todoId = todos[i].id;
 			}
 		}
 
-		for (var i = 0; i < todos.length; i++) {
-			if (todos[i].id == todoId) {
+		for (i = 0; i < todos.length; i++) {
+			if (todos[i].id === todoId) {
 				todos.splice(i, 1);
 			}
 		}
