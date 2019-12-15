@@ -81,25 +81,12 @@
 
 		callback = callback || function () {};
 
-		// New Approach
-
 		// Math.random should be unique because of its seeding algorithm.
 		// Convert it to base 36 (numbers + letters), and grab the first 9 characters
 		// after the decimal.
-		let newId = '_' + Math.random().toString(36).substr(2, 9);
-
-		// Old Approach
-
-		// Generate an ID
-	  //   var newId = "";
-	  //   var charset = "0123456789";
-		//
-    //     for (var i = 0; i < 6; i++) {
-    //  		newId += charset.charAt(Math.floor(Math.random() * charset.length));
-		// }
+		var newId = '_' + Math.random().toString(36).substr(2, 9);
 
 		// If an ID was actually given, find the item and update each property
-		console.log('updating id: ', id);
 		if (id) {
 			for (var i = 0; i < todos.length; i++) {
 				if (todos[i].id === id) {

@@ -171,6 +171,9 @@
 		});
 	};
 
+	//TODO Mentor: I thought about updating this function to work the same way as render function does. Is this a good idea?
+	// I think it should speed up execution... ?
+
 	View.prototype.bind = function (event, handler) {
 		var self = this;
 		if (event === 'newTodo') {
