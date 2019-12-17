@@ -45,7 +45,6 @@
 		}
 
 		var todos = JSON.parse(localStorage[this._dbName]).todos;
-		console.log(todos);
 
 		callback.call(this, todos.filter(function (todo) {
 			for (var q in query) {

@@ -12,7 +12,7 @@
 	}
 
 	/**
-	 * Creates a new todo model
+	 * Creates a new to-do model
 	 *
 	 * @param {string} [title] The title of the task
 	 * @param {function} [callback] The callback to fire after the model is created
@@ -63,9 +63,9 @@
 	 * Updates a model by giving it an ID, data to update, and a callback to fire when
 	 * the update is complete.
 	 *
-	 * @param {number} id The id of the model to update
-	 * @param {object} data The properties to update and their new value
-	 * @param {function} callback The callback to fire when the update is complete.
+	 * @param {number} [id] The id of the model to update
+	 * @param {object} [data] The properties to update and their new value
+	 * @param {function} [callback] The callback to fire when the update is complete.
 	 */
 	Model.prototype.update = function (id, data, callback) {
 		this.storage.save(data, callback, id);
