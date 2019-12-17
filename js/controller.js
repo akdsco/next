@@ -13,6 +13,9 @@
 		self.model = model;
 		self.view = view;
 
+		//TODO Mentor: this event bindings are not removed after an application exit. Am I right? If that's true,
+		// it's a memory leak and should be addressed?
+
 		self.view.bind('newTodo', function (title) {
 			self.addItem(title);
 		});

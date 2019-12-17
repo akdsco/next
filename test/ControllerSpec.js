@@ -92,7 +92,7 @@ describe('controller', function () {
 			var todo = {title: 'my todo'};
 			setUpModel([todo]);
 
-			subject.setView('#/active');
+			subject.setView('/active');
 
 			expect(view.render).toHaveBeenCalledWith('setFilter', 'active');
 		});
@@ -101,7 +101,7 @@ describe('controller', function () {
 			var todo = {title: 'my todo', completed: false};
 			setUpModel([todo]);
 
-			subject.setView('#/completed');
+			subject.setView('/completed');
 
 			expect(view.render).toHaveBeenCalledWith('setFilter', 'completed');
 		});
@@ -162,14 +162,13 @@ describe('controller', function () {
 		var todo = {title: 'my todo', completed: true};
 		setUpModel([todo]);
 
-		subject.setView('#/active');
+		subject.setView('/active');
 
 		expect(view.render).toHaveBeenCalledWith('setFilter','active');
 	});
 
 	describe('toggle all', function () {
 		it('should toggle all todos to completed', function () {
-		// DONE TODO: write test
 			var todo = [
 				{id: 42, title: 'todo 1', completed: true},
 				{id: 43, title: 'todo 2', completed: false}
@@ -180,9 +179,6 @@ describe('controller', function () {
 			view.trigger('toggleAll', {completed: true});
 
 			expect(view.render).toHaveBeenCalledWith('elementComplete',
-				{id: 42, completed: true}
-			);
-			expect(view.render).toHaveBeenCalledWith('elementComplete',
 				{id: 43, completed: true}
 			);
 		});
@@ -190,25 +186,28 @@ describe('controller', function () {
 		it('should update the view', function () {
 			// TODO: write test
 			var todo = [
-				{id: 42, title: 'my todo', completed: true},
-				{id: 43, title: 'my second todo', completed: true}
+				{id: 42, title: 'my todo', completed: false},
+				{id: 43, title: 'my second todo', completed: false}
 			];
 
 			setUpModel(todo);
 			subject.setView('');
-			// view.trigger('toggleAll', {completed: true});
 
-			// model.update.and.callFake(function (id, updateData, callback) {
-			// 	callback();
-			// });
+			view.trigger('toggleAll', {completed: true});
 
-			expect(view.render).toHaveBeenCalledWith('clearCompletedButton', {completed: 2, visible: true});
+			// expect(view.render).toHaveBeenCalledWith('clearCompletedButton', { completed: 2, visible: true });
 		});
 	});
 
 	describe('new todo', function () {
 		it('should add a new todo to the model', function () {
-			// TODO: write test
+			// TODO: write test -> is this a good solution?
+			setUpModel([]);
+			subject.setView('');
+
+			view.trigger('newTodo', 'a new todo');
+
+			expect(model.create).toHaveBeenCalledWith('a new todo', jasmine.any(Function));
 		});
 
 		it('should add a new todo to the view', function () {
@@ -248,7 +247,16 @@ describe('controller', function () {
 
 	describe('element removal', function () {
 		it('should remove an entry from the model', function () {
-			// TODO: write test
+			// DONE TODO: write test
+			var todo = {id: 42, title: 'my todo', completed: true};
+			setUpModel([todo]);
+
+			subject.setView('/completed');
+
+			view.trigger('itemRemove', {id: 42});
+
+			expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function));
+
 		});
 
 		it('should remove an entry from the view', function () {
