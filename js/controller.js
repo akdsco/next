@@ -13,9 +13,6 @@
 		self.model = model;
 		self.view = view;
 
-		//TODO Mentor: this event listener bindings are not removed after an application exit. Am I right? If that's true,
-		// it's a memory leak and should be addressed?
-
 		self.view.bind('newTodo', function (title) {
 			self.addItem(title);
 		});
@@ -55,9 +52,7 @@
 	 * @param {string} locationHash - '' | 'active' | 'completed'
 	 */
 	Controller.prototype.setView = function (locationHash) {
-	    //TODO Mentor possibly take out page variable and add || to route variable ?
-		var route = locationHash.split('/')[1];
-		var page = route || '';
+		var page = locationHash.split('/')[1] || '';
 
 		this._updateFilterState(page);
 	};

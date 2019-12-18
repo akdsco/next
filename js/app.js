@@ -3,9 +3,9 @@
 	'use strict';
 
 	/**
-	 * Sets up a brand new To-do list.
+	 * Sets up new To-do list app.
 	 *
-	 * @param {string} name The name of your new to do list.
+	 * @param {string} name - Name of new to-do list app.
 	 */
 	function Todo(name) {
 		this.storage = new app.Store(name);
