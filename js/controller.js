@@ -5,8 +5,8 @@
 	 * Takes a model and view and acts as the controller between them
 	 *
 	 * @constructor
-	 * @param {object} model - The model instance
-	 * @param {object} view - The view instance
+	 * @param {Object} model - The model instance
+	 * @param {Object} view  - The view instance
 	 */
 	function Controller(model, view) {
 		var self = this;
@@ -221,11 +221,11 @@
 	 *
 	 * @param {string} id - The ID of the element to complete or uncomplete
 	 * @param {boolean} completed - The checkbox to check the state of complete or not
-	 * @param {boolean|undefined} silent - Prevent re-filtering the to-do items
+	 * @param {boolean|undefined} [silent] - Prevent re-filtering the to-do items
 	 */
 	Controller.prototype.toggleComplete = function (id, completed, silent) {
-		console.log(id);
 		var self = this;
+
 		self.model.update(id, { completed: completed }, function () {
 			self.view.render('elementComplete', {
 				id: id,
@@ -247,6 +247,7 @@
 	 */
 	Controller.prototype.toggleAll = function (completed) {
 		var self = this;
+
 		self.model.read({ completed: !completed }, function (data) {
 			data.forEach(function (item) {
 				self.toggleComplete(item.id, completed, true);
@@ -262,6 +263,7 @@
 	 */
 	Controller.prototype._updateCount = function () {
 		var self = this;
+
 		self.model.getCount(function (todos) {
 			self.view.render('updateElementCount', todos.active);
 			self.view.render('clearCompletedButton', {
@@ -275,7 +277,7 @@
 	};
 
 	/**
-	 * Re-filters the to-do items, based on the active route.
+	 * Re-filters to-do items based on the active route.
 	 *
 	 * @param {boolean|undefined} [force] - if true, triggers re-painting of to-do items.
 	 */
