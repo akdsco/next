@@ -46,8 +46,7 @@
 	 * NOTE: In real life you should be using a templating engine such as Mustache
 	 * or Handlebars, however, this is a vanilla JS example.
 	 *
-	 * @param {object} data The object containing keys you want to find in the
-	 *                      template to replace.
+	 * @param {Object} data - The object containing keys you want to find in the template to replace.
 	 * @returns {string} HTML String of an <li> element
 	 *
 	 * @example
@@ -83,9 +82,9 @@
 	};
 
 	/**
-	 * Displays a counter of how many to dos are left to complete
+	 * Displays a counter of how many to-do's are left to complete
 	 *
-	 * @param {number} activeTodos The number of active todos.
+	 * @param {number} activeTodos - The number of active todos.
 	 * @returns {string} String containing the count
 	 */
 	Template.prototype.itemCounter = function (activeTodos) {
@@ -97,8 +96,8 @@
 	/**
 	 * Updates the text within the "Clear completed" button
 	 *
-	 * @param  {[type]} completedTodos The number of completed todos.
-	 * @returns {string} String containing the count
+	 * @param  {number} completedTodos - The number of completed todos.
+	 * @returns {string} String containing button text
 	 */
 	Template.prototype.clearCompletedButton = function (completedTodos) {
 		if (completedTodos > 0) {
