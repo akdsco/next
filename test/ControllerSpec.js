@@ -186,22 +186,22 @@ describe('controller', function () {
 		it('should update the view', function () {
 			// TODO: write test
 			var todo = [
-				{id: 42, title: 'my todo', completed: false},
-				{id: 43, title: 'my second todo', completed: false}
+				{id: 42, title: 'my todo', completed: true},
+				{id: 43, title: 'my second todo', completed: true}
 			];
 
-			setUpModel(todo);
+			setUpModel([]);
 			subject.setView('');
 
-			view.trigger('toggleAll', {completed: true});
+			view.trigger('newTodo', 'a new todo');
+			// view.trigger('toggleAll', {completed: false});
 
-			// expect(view.render).toHaveBeenCalledWith('clearCompletedButton', { completed: 2, visible: true });
+			expect(model.create).toHaveBeenCalledWith('', { completed: 1, visible: true });
 		});
 	});
 
 	describe('new todo', function () {
 		it('should add a new todo to the model', function () {
-			// TODO: write test -> is this a good solution?
 			setUpModel([]);
 			subject.setView('');
 
@@ -247,7 +247,6 @@ describe('controller', function () {
 
 	describe('element removal', function () {
 		it('should remove an entry from the model', function () {
-			// DONE TODO: write test
 			var todo = {id: 42, title: 'my todo', completed: true};
 			setUpModel([todo]);
 

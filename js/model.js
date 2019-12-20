@@ -79,8 +79,6 @@
 		this.storage.remove(id, callback);
 	};
 
-    // TODO Mentor: removeAll isn't used at all.. is this something I should implement?
-
 	/**
 	 * Removes ALL data from storage.
 	 *

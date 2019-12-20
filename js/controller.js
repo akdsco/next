@@ -57,41 +57,57 @@
 		this._updateFilterState(page);
 	};
 
+	Controller.prototype.show = function (completed) {
+		var self = this;
+		var queryType = typeof completed;
+
+		if(queryType === 'boolean') {
+			self.model.read({ completed: completed }, function (data) {
+				self.view.render('showEntries', data);
+			});
+		} else if (queryType === 'undefined') {
+			self.model.read(function (data) {
+				self.view.render('showEntries', data);
+			});
+		}
+	};
+
 	/**
 	 * An event to fire on load. Will get all items and display them in the to-do list
 	 */
-	Controller.prototype.showAll = function () {
-		var self = this;
-
-		self.model.read(function (data) {
-			self.view.render('showEntries', data);
-		});
-	};
+	// Controller.prototype.showAll = function () {
+	// 	var self = this;
+	//
+	// 	self.model.read(function (data) {
+	// 		self.view.render('showEntries', data);
+	// 	});
+	// };
 
 	//TODO MENTOR glue together showActive and showCompleted functions into one function that will accept boolean parameter?
 	// maybe even with showAll ?
+	// - check all the dependecies and if possible rewrite
 
 	/**
 	 * Renders all active tasks
 	 */
-	Controller.prototype.showActive = function () {
-		var self = this;
-
-		self.model.read({ completed: false }, function (data) {
-			self.view.render('showEntries', data);
-		});
-	};
+	// Controller.prototype.showActive = function () {
+	// 	var self = this;
+	//
+	// 	self.model.read({ completed: false }, function (data) {
+	// 		self.view.render('showEntries', data);
+	// 	});
+	// };
 
 	/**
 	 * Renders all completed tasks
 	 */
-	Controller.prototype.showCompleted = function () {
-		var self = this;
-
-		self.model.read({ completed: true }, function (data) {
-			self.view.render('showEntries', data);
-		});
-	};
+	// Controller.prototype.showCompleted = function () {
+	// 	var self = this;
+	//
+	// 	self.model.read({ completed: true }, function (data) {
+	// 		self.view.render('showEntries', data);
+	// 	});
+	// };
 
 	/**
 	 * An event to fire whenever you want to add an item. Simply pass in the event
@@ -236,7 +252,7 @@
 	//TODO what does completeness of models mean?
 
 	/**
-	 * Will toggle ALL checkboxes' on/off state and completeness of models.
+	 * Will toggle ALL checkboxes' on/off state and completeness of to-do's.
 	 *
 	 * @param {boolean} completed - Value for all items to be ticked off or not
 	 */
@@ -283,9 +299,14 @@
 		this._updateCount();
 
 		// re-create the to-do item elements if not "All" or when switching routes:
-		// this.show[All|Active|Completed]();
 		if (force || this._lastActiveRoute !== 'All' || this._lastActiveRoute !== activeRoute) {
-			this['show' + activeRoute]();
+			if(activeRoute === 'All') {
+				this.show();
+			} else if (activeRoute === 'Active') {
+				this.show(false);
+			} else if (activeRoute === 'Completed') {
+				this.show(true);
+			}
 		}
 
 		this._lastActiveRoute = activeRoute;
