@@ -190,7 +190,7 @@ describe('controller', function () {
 				{id: 43, title: 'my second todo', completed: true}
 			];
 
-			setUpModel([]);
+			setUpModel([todo]);
 			subject.setView('');
 
 			view.trigger('newTodo', 'a new todo');
