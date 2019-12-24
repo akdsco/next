@@ -73,10 +73,14 @@ To-do's application
 │   │   ControllerSpec.js           => Unit tests
 │   │   SpecRunner.html             => Tests runner
 ```
-###### controller.js
+
+### Controller
+
+`controller.js`
+
 This file contains main logic for the application. When initialized, it binds all the events and therefore creates a way
 for user to interact with the application. Below is the code used in it's constructor:
-
+###### 
 ```
 function Controller (model, view) {
     var self = this;
@@ -122,3 +126,131 @@ Depending on action, controller will call methods from `model.js` and `view.js` 
 re-render any changes in the view. It contains specific chains of commands needed for actions like `addItem` or `editItem`
 Anything to-do app will do, will be started in `controller.js`
 
+### View
+
+`view.js`
+
+This file contains all methods which purpose is to manipulate DOM elements and change the way the application displays 
+current data from database. For example, if user completes a task, it will trigger event, which will be picked up by 
+`controller.js`, which in turn will eventually call `view.js` method to update the to-do item.
+
+Most methods in `view.js` are private. The interface comprises of `render` and `bind` methods.
+Main method which is responsible for proper 'directions' is `render`.
+It's implementation is shown below:
+
+```javascript
+View.prototype.render = function (viewCmd, parameter) {
+    var self = this;
+    var viewCommands = {
+        showEntries: function () {
+            self.$todoList.innerHTML = self.template.show(parameter);
+        },
+        removeItem: function () {
+            self._removeItem(parameter);
+        },
+        updateElementCount: function () {
+            self.$todoItemCounter.innerHTML = self.template.itemCounter(parameter);
+        },
+        clearCompletedButton: function () {
+            self._clearCompletedButton(parameter.completed, parameter.visible);
+        },
+        contentBlockVisibility: function () {
+            self.$main.style.display = self.$footer.style.display = parameter.visible ? 'block' : 'none';
+        },
+        toggleAll: function () {
+            self.$toggleAll.checked = parameter.checked;
+        },
+        setFilter: function () {
+            self._setFilter(parameter);
+        },
+        clearNewTodo: function () {
+            self.$newTodo.value = '';
+        },
+        elementComplete: function () {
+            self._elementComplete(parameter.id, parameter.completed);
+        },
+        editItem: function () {
+            self._editItem(parameter.id, parameter.title);
+        },
+        editItemDone: function () {
+            self._editItemDone(parameter.id, parameter.title);
+        }
+    };
+
+    viewCommands[viewCmd]();
+};
+```
+
+Application uses custom templates to create to-do's and update information like the amount of active to-do's due to be 
+completed. All templates are stored in:
+ 
+ `template.js`
+
+This file contains one main template for to-do item stored as default template and is instantiated whenever template 
+object is created. There are three methods `show`, `itemCounter` and `clearCompletedButton` As described, they show all 
+the to-do's, update due items counter and update clear complete button text.
+
+### Model
+
+`model.js`
+
+`Model` is created with instace of `Store.js`. `Model` is connecting local database (`Store`) with `Controller.js`.
+Model coordinates and allows data manipulation along with CRUD persistent storage functions. It consist of methods:
+
+- `create` (title, [callback])
+- `read` (query, [callback])
+- `update` (id, data, [callback])
+- `remove` (id, callback)
+- `removeAll` (callback)
+- `getCount` (callback)
+
+Each method's name explains it's purpose directly.
+
+`store.js`
+
+When instantiated, creates a new client side storage object and will create an empty collection if no collection already 
+exists. All our local database methods have callbacks to return data to callers (It would normally be AJAX calls to db). 
+`Store.js` consists of four methods:
+
+- `find`
+```
+
+Finds items based on a query given as a JS object
+
+@param {Object} query - The query to match against (i.e. {foo: 'bar'})
+@param {function} callback - The callback to fire when the query has completed running
+
+@example
+db.find({foo: 'bar', hello: 'world'}, function (data) {
+  data will return any items that have foo: bar and
+  hello: world in their properties
+});
+```
+- `findAll`
+```
+Will retrieve all data from the collection
+
+@param {function} callback - The callback to fire upon retrieving data
+```
+- `save`
+```
+Will save the given data to the DB. If no item exists it will create a new
+item, otherwise it'll simply update an existing item's properties
+
+@param {Object} updateData - The data to save back into the DB
+@param {function} callback - The callback to fire after saving
+@param {string} [id] - Optional param to enter an id of item to update
+```
+- `remove` 
+```
+Will remove an item from the Store based on its id
+
+@param {string} id - The ID of the item you want to remove
+@param {function} callback - The callback to fire after saving
+```
+- `drop`
+```
+Will drop all storage and start fresh
+
+@param {function} callback - The callback to fire after dropping the data
+```
