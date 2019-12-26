@@ -55,7 +55,7 @@ memory.
 # File Structure
 ```
 To-do's application
-|   package.json                    => dependencies (for developers)
+|   package.json                    => dependencies
 |   license.md                      => license
 |   documentation.md                => application documentation
 |   index.html                      => application start
@@ -81,7 +81,7 @@ To-do's application
 This file contains main logic for the application. When initialized, it binds all the events and therefore creates a way
 for user to interact with the application. Below is the code used in it's constructor:
 ###### 
-```
+```javascript
 function Controller (model, view) {
     var self = this;
     self.model = model;
@@ -184,11 +184,11 @@ View.prototype.render = function (viewCmd, parameter) {
 Application uses custom templates to create to-do's and update information like the amount of active to-do's due to be 
 completed. All templates are stored in:
  
- `template.js`
+`template.js`
 
 This file contains one main template for to-do item stored as default template and is instantiated whenever template 
 object is created. There are three methods `show`, `itemCounter` and `clearCompletedButton` As described, they show all 
-the to-do's, update due items counter and update clear complete button text.
+the to-do's, update due items counter and update clear completed button text.
 
 ### Model
 
@@ -197,24 +197,67 @@ the to-do's, update due items counter and update clear complete button text.
 `Model` is created with instace of `Store.js`. `Model` is connecting local database (`Store`) with `Controller.js`.
 Model coordinates and allows data manipulation along with CRUD persistent storage functions. It consist of methods:
 
-- `create` (title, [callback])
-- `read` (query, [callback])
-- `update` (id, data, [callback])
-- `remove` (id, callback)
-- `removeAll` (callback)
-- `getCount` (callback)
+- `create`
+```
+Creates a new to-do model
 
-Each method's name explains it's purpose directly.
+@param {string} title - The title of the task
+@param {function} [callback] - The callback to fire after the model is created
+```
+- `read`
+```
+Finds and returns a model in storage. If no query is given it'll simply
+return everything. If you pass in a string or number it'll look that up as
+the ID of the model to find. Lastly, you can pass it an object to match
+against.
+
+@param {string|number|Object} query - A query to match models against
+@param {function} [callback] - The callback to fire after the model is found
+
+@example
+model.read(1, func); // Will find the model with an ID of 1
+model.read('1'); // Same as above
+model.read({ foo: 'bar', hello: 'world' }); // will find a model with foo equalling 
+                                               bar and hello equalling world.
+```
+- `update`
+```
+Updates a model by giving it an ID, data to update, and a callback to fire when
+the update is complete.
+
+@param {string} id - The id of the model to update
+@param {Object} data - The properties to update and their new value
+@param {function} [callback] - The callback to fire when the update is complete.
+``` 
+- `remove`
+```
+Removes a model from storage
+
+@param {string} id - The ID of the model to remove
+@param {function} callback - The callback to fire when the removal is complete.
+```
+- `removeAll`
+```
+Removes ALL data from storage.
+
+@param {function} callback - The callback to fire when the storage is wiped.
+```
+- `getCount`
+```
+Returns a count of all todos
+
+@param {function} callback - The callback to fire when count of to-do's is done.
+```
+
 
 `store.js`
 
 When instantiated, creates a new client side storage object and will create an empty collection if no collection already 
 exists. All our local database methods have callbacks to return data to callers (It would normally be AJAX calls to db). 
-`Store.js` consists of four methods:
+`Store.js` consists of five methods:
 
 - `find`
 ```
-
 Finds items based on a query given as a JS object
 
 @param {Object} query - The query to match against (i.e. {foo: 'bar'})
