@@ -74,13 +74,11 @@ To-do's application
 │   │   SpecRunner.html             => Tests runner
 ```
 
-### Controller
-
 `controller.js`
 
 This file contains main logic for the application. When initialized, it binds all the events and therefore creates a way
 for user to interact with the application. Below is the code used in it's constructor:
-###### 
+
 ```javascript
 function Controller (model, view) {
     var self = this;
@@ -125,8 +123,6 @@ All the bindings reffer to functions inside `controller.js`. Those functions con
 Depending on action, controller will call methods from `model.js` and `view.js` and this way update local database and
 re-render any changes in the view. It contains specific chains of commands needed for actions like `addItem` or `editItem`
 Anything to-do app will do, will be started in `controller.js`
-
-### View
 
 `view.js`
 
@@ -189,8 +185,6 @@ completed. All templates are stored in:
 This file contains one main template for to-do item stored as default template and is instantiated whenever template 
 object is created. There are three methods `show`, `itemCounter` and `clearCompletedButton` As described, they show all 
 the to-do's, update due items counter and update clear completed button text.
-
-### Model
 
 `model.js`
 

@@ -184,19 +184,19 @@ describe('controller', function () {
 		});
 
 		it('should update the view', function () {
-			// TODO: write test
+			// TODO: Mentor: this is good way to test it?
 			var todo = [
-				{id: 42, title: 'my todo', completed: true},
-				{id: 43, title: 'my second todo', completed: true}
+				{id: 42, title: 'todo 1', completed: false},
+				{id: 43, title: 'todo 2', completed: true}
 			];
 
-			setUpModel([todo]);
+			setUpModel(todo);
 			subject.setView('');
+			view.trigger('toggleAll', {completed: true});
 
-			view.trigger('newTodo', 'a new todo');
-			// view.trigger('toggleAll', {completed: false});
-
-			expect(model.create).toHaveBeenCalledWith('', { completed: 1, visible: true });
+			expect(view.render).toHaveBeenCalledWith('elementComplete',
+				{id: 42, completed: true}
+			);
 		});
 	});
 
