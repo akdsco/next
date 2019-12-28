@@ -3,6 +3,9 @@
 <html lang="en" data-framework="javascript">
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="Description" content="To-do application to stay productive throughout your day. Add tasks and mark them
+										  as completed. Enjoy well organised life.">
 		<title>To-do list app</title>
 		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
 		<link rel="stylesheet" href="node_modules/todomvc-app-css/index.css">
@@ -11,8 +14,7 @@
 		<section class="todoapp">
 			<header class="header">
 				<h1>todos</h1>
-				<!--suppress HtmlFormInputWithoutLabel -->
-                <input class="new-todo" placeholder="What needs to be done?" autofocus>
+				<input aria-label="to-do input" class="new-todo" placeholder="What needs to be done?" autofocus>
 			</header>
 			<section class="main">
 				<input class="toggle-all" id="toggle-all" type="checkbox">

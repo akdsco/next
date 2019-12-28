@@ -291,3 +291,21 @@ Will drop all storage and start fresh
 
 @param {function} callback - The callback to fire after dropping the data
 ```
+
+# App Audit & Comparison
+
+ ### TodoListMe audit
+
+Text here
+
+ ### Todos app audit
+ 
+Text here
+ 
+ ### TodoListMe vs. Todos (comparative summary)
+
+Info here
+
+  - files size of app
+  - response times
+  - advertisements influence over loading
