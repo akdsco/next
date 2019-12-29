@@ -296,15 +296,46 @@ Will drop all storage and start fresh
 
  ### TodoListMe audit
 
-Text here
+ ##### Summary
+ 
+ Full Downloadable Audits
+ 
+ - [Mobile]()
+ - [Mobile Throttled -- 4G Slow Sim]()
+ - [Desktop]()
+ - [Desktop Throttled -- 4G Slow Sim]()
+ 
+ ##### Performance
+ 
+ 
+ 
+ ##### Accessibility
+ ##### Best Practice
+ ##### SEO
 
  ### Todos app audit
  
-Text here
+ ##### Summary
+ 
+  Full Downloadable Audits
+  
+  - [Mobile]()
+  - [Mobile Throttled -- 4G Slow Sim]()
+  - [Desktop]()
+  - [Desktop Throttled -- 4G Slow Sim]()
+ 
+ ##### Performance
+ ##### Accessibility
+ ##### Best Practice
+ ##### SEO
  
  ### TodoListMe vs. Todos (comparative summary)
 
-Info here
+ ##### Summary
+ ##### Performance
+ ##### Accessibility
+ ##### Best Practice
+ ##### SEO
 
   - files size of app
   - response times
