@@ -73,43 +73,6 @@
 	};
 
 	/**
-	 * An event to fire on load. Will get all items and display them in the to-do list
-	 */
-	// Controller.prototype.showAll = function () {
-	// 	var self = this;
-	//
-	// 	self.model.read(function (data) {
-	// 		self.view.render('showEntries', data);
-	// 	});
-	// };
-
-	//TODO MENTOR glue together showActive and showCompleted functions into one function that will accept boolean parameter?
-	// maybe even with showAll ?
-	// - check all the dependecies and if possible rewrite
-
-	/**
-	 * Renders all active tasks
-	 */
-	// Controller.prototype.showActive = function () {
-	// 	var self = this;
-	//
-	// 	self.model.read({ completed: false }, function (data) {
-	// 		self.view.render('showEntries', data);
-	// 	});
-	// };
-
-	/**
-	 * Renders all completed tasks
-	 */
-	// Controller.prototype.showCompleted = function () {
-	// 	var self = this;
-	//
-	// 	self.model.read({ completed: true }, function (data) {
-	// 		self.view.render('showEntries', data);
-	// 	});
-	// };
-
-	/**
 	 * An event to fire whenever you want to add an item. Simply pass in the event
 	 * name and it'll handle the DOM insertion and saving of the new item.
 	 *
@@ -149,17 +112,6 @@
 	 */
 	Controller.prototype.editItemSave = function (id, title) {
 		var self = this;
-
-		// TODO Mentor use trim() to get rid of two while loops?
-
-		// while (title[0] === " ") {
-		// 	title = title.slice(1);
-		// }
-		//
-		// while (title[title.length-1] === " ") {
-		// 	title = title.slice(0, -1);
-		// }
-
 		title = title.trim();
 
 		if (title.length !== 0) {
@@ -248,8 +200,6 @@
 			self._filter();
 		}
 	};
-
-	//TODO what does completeness of models mean?
 
 	/**
 	 * Will toggle ALL checkboxes' on/off state and completeness of to-do's.
