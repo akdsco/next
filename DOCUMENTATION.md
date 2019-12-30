@@ -122,8 +122,6 @@ function Controller (model, view) {
 All the bindings reffer to functions inside `controller.js`. Those functions contain all calls necessary for actions.
 Depending on action, controller will call methods from `model.js` and `view.js` and this way update local database and
 re-render any changes in the view. It contains specific chains of commands needed for actions like `addItem` or `editItem`
-Anything to-do app will do, will be started in `controller.js`
-
 `view.js`
 
 This file contains all methods which purpose is to manipulate DOM elements and change the way the application displays 
@@ -298,12 +296,16 @@ Will drop all storage and start fresh
 
  ##### Summary
  
- Full Downloadable Audits
+ Download Audits (.pdf):
  
- - [Mobile]()
- - [Mobile Throttled -- 4G Slow Sim]()
- - [Desktop]()
- - [Desktop Throttled -- 4G Slow Sim]()
+ - [Mobile](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_mobile.pdf)
+ - [Mobile Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_mobile_4g_slow.pdf)
+ - [Desktop](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop.pdf)
+ - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop_4g_slow.pdf)
+ 
+ Overall, it's a very well performing application. It does need a little bit update when it comes to Accessibility, Best 
+ Practices and SEO. It isn't responsive eaither and in my opinion it should be the first thing to address. It's features
+ allow users to do quite a lot, therefore it's powerfull.
  
  ##### Performance
  
@@ -317,17 +319,54 @@ Will drop all storage and start fresh
  
  ##### Summary
  
-  Full Downloadable Audits
+ Download Audits (.pdf):
   
-  - [Mobile]()
-  - [Mobile Throttled -- 4G Slow Sim]()
-  - [Desktop]()
-  - [Desktop Throttled -- 4G Slow Sim]()
+  - [Mobile](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos/todos_audit_mobile.pdf)
+  - [Mobile Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos/todos_audit_mobile_4g_slow.pdf)
+  - [Desktop](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos/todos_audit_desktop.pdf)
+  - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos/todos_audit_desktop_4g_slow.pdf)
+ 
+ Application allows users to create a simple list of to-do's. It stores data locally in client browser. It allows item 
+ edits. It's simple implementation and lack of ads displayed with it, alows a maximum performance on both mobile and 
+ desktop devices and on slower networks as well.
  
  ##### Performance
+ 
+ | Metrics                          | Time |
+ |----------------------------------|-----:|
+ | First Contentful Paint           | 0.2s |
+ | Speed Index                      | 0.2s |
+ | Time to Interactive              | 0.2s |
+ | Max Potential First Input Delay  | 30s  |
+ | First CPU Idle                   | 0.2s |
+ | First Meaningful Paint           | 0.2s |
+ 
+ The stats are impressive, application loads extremely fast. It's mostly due to it's simplicity, as it does not need to 
+ connect with servers and databases. It's simple and powerfull. The stats above are from a non throttled desktop based 
+ audit. However, even when throttled, it performs extremely fast, in ranges of 0.1-0.2s.
+ 
+ There are few suggestions to improve applications performance, however the gains are marginal. Some of those 
+ suggestions are:
+ - minify JS - 12KB Savings
+ - remove unused CSS - 8KB Savings
+ - enable text compression - 25KB Savings
+ 
  ##### Accessibility
+ 
+ All test that are applicable to this application passed. This application is accessible to a wide variety of users.
+ There are aria-labels included, the page contains a heading, skip link, or landmark region, document has the title,
+ `<html>` has lang attribute, labels are present with all form inputs and zooming is allowed for all users who rely on 
+ screen magnification.
+  
  ##### Best Practice
+ 
+ Application was tested on local machine and served through IDE. It did not connect over secure HTTPS connection and 
+ HTTP/2 and it's reflected on the audit. However, apart from this minor technicality, the rest of the practices are in 
+ place and 
+ 
  ##### SEO
+ 
+ content
  
  ### TodoListMe vs. Todos (comparative summary)
 
