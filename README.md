@@ -9,10 +9,9 @@
 #### 2. Data Storage
 
 Application stores your to-do's locally. If you use cookies and don't delete them, your to-do's will be saved and cached.
-This means the browser will keep them saved even after closing it.
+Normally, the browser keeps cookies saved even after closing tab or the browser itself.
 
 #### 3. More info
 
-If you're interested to learn more about this application. Have a look at [wiki](https://github.com/akdsco/todo-list-enchance/wiki) 
-created for this project.
-
+If you're interested to learn more about technical details and how this application works, 
+have a look at [wiki](https://github.com/akdsco/todo-list-enchance/wiki) created for this project.
