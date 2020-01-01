@@ -303,17 +303,142 @@ Will drop all storage and start fresh
  - [Desktop](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop.pdf)
  - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop_4g_slow.pdf)
  
- Overall, it's a very well performing application. It does need a little bit update when it comes to Accessibility, Best 
- Practices and SEO. It isn't responsive eaither and in my opinion it should be the first thing to address. It's features
- allow users to do quite a lot, therefore it's powerfull.
+ Application performs well when run on high speed internet connection. However, the performance on slower speed connections
+ suffers signigicantly, especially on mobile devices, where it only receives 44 score in performance. The other major 
+ low score is Accesibility, which is only 38 and that's across all four different audits. SEO and Best Practices are 
+ ok but there's certainly room to improve.
  
  ##### Performance
  
+ Desktop: `Score: 99/100`
+ Desktop 4G Throttled: `Score: 67/100`
+ Mobile 4G Throttled: `Score: 44/100`
  
+ Performance figures when run on high speed internet (Desktop):
+ 
+  | Metrics                          |  Time  |
+  |----------------------------------|-------:|
+  | First Contentful Paint           |   0.9s |
+  | Speed Index                      |   1.4s |
+  | Time to Interactive              |   2.4s |
+  | Max Potential First Input Delay  |  180ms |
+  | First CPU Idle                   |   2.4s |
+  | First Meaningful Paint           |   1.2s |
+
+ Performance figures when run on slow, 4G speed internet (Desktop):
+ 
+   | Metrics                          |  Time  |
+   |----------------------------------|-------:|
+   | First Contentful Paint           |   1.5s |
+   | Speed Index                      |   4.7s |
+   | Time to Interactive              |   7.2s |
+   | Max Potential First Input Delay  |  540ms |
+   | First CPU Idle                   |   6.8s |
+   | First Meaningful Paint           |   2.4s |
+   
+ Performance figures when run on slow, 4G speed internet (Mobile):
+
+   | Metrics                          |  Time  |
+   |----------------------------------|-------:|
+   | First Contentful Paint           |   2.8s |
+   | Speed Index                      |   6.0s |
+   | Time to Interactive              |  10.8s |
+   | Max Potential First Input Delay  |  870ms |
+   | First CPU Idle                   |   9.9s |
+   | First Meaningful Paint           |   2.8s |   
+   
+ If we compare the result, we can clearly see the slow down. The application runs the fastest on Desktop with high speed
+ connection. The desktop slow 4G simulation shows slow down and further decline on Mobile. Let's examine it in %:
+ 
+ Percentage of slowdown - Desktop HS -> Desktop 4G Slow 
+ 
+   | Metrics                          |    Time    |
+   |----------------------------------|-----------:|
+   | First Contentful Paint           | 40% slower |
+   | Speed Index                      | 60% slower |
+   | Time to Interactive              | 65% slower |
+   | Max Potential First Input Delay  | 65% slower |
+   | First CPU Idle                   | 64% slower |
+   | First Meaningful Paint           | 50% slower |
+   
+ Percentage of slowdown - Desktop HS -> Mobile 4G Slow
+ 
+   | Metrics                          |    Time    |
+   |----------------------------------|-----------:|
+   | First Contentful Paint           | 67% slower |
+   | Speed Index                      | 76% slower |
+   | Time to Interactive              | 79% slower |
+   | Max Potential First Input Delay  | 79% slower |
+   | First CPU Idle                   | 75% slower |
+   | First Meaningful Paint           | 57% slower |
+   
+Main suggestions to improve performance:
+
+- optimise images
+- remove unused CSS rules
+- preconnect required origins
+- restructure JS code and deliver in trenches as needed
+- change cache policy to a more efficient one
+- limit the number of redundant third party code and try to load this code after page has finished loading
+   
+ TODO should I write more here ?
  
  ##### Accessibility
+
+ `Score: 38/100`
+ 
+ This metrics did not differ when performing audits on different devices and speeds. The score is quite low, 38/100. 
+ There are a couple of things that need to be improved. As the internet grows and reaches many people, we need to 
+ be aware that there are many users who access data available on the internet, alternatively. In order to make this 
+ particular application more available, developer would need to:
+ 
+ - change background and foreground colours so that they have sufficient contrast ratio
+ - make all ID's on the page unique
+ - add `<title>` to `<iframe>` and `<form>`
+ - add alt atributes to all `<img>` tags
+ - add lang atribute to `<html>` tag
+ 
+ There are also many other things that can't be checked automatically. Manual checks that can be performed are listed 
+ [here](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop.pdf) on
+ page 10.
+ 
  ##### Best Practice
+ 
+ `Score: 71/100`
+ 
+ - HTTPS
+ 
+ As the internet grows and security flaws are discovered daily, we try to stay as secure as possible. In order to do so
+ HTTPS connections are more and more common, even on websites that do not store any data. This application isn't using 
+ the secure connection and therefore it's listed on the audit as a first thing. 
+ 
+ - HTTP/2
+  
+ Another security upgrade is usage of HTTP/2 which is a newer way to transport data across the internet. In order to 
+ use HTTP/2 (if server hosting website is ready for HTTP/2), there's a pre-requisite, which is HTTPS. As we know, this 
+ application does not use it, therefore it can't use HTTP/2 either. It's something that can help bring security on this 
+ page to a higher level.
+ 
+ - @jQuery - vulnerable dependency
+ 
+ It's crucial for both performance and security to use up to date software. Many times we only discover our code isn't 
+ secure after we used it for some time. When we do discover that, version with insecure code gets flagged and information 
+ to all developers using it sent. Then it's developers job to update the software and close the open door to stop 
+ possible attacks and data leaks. In case of this application, jQuery library should be updated. 
+ 
  ##### SEO
+ 
+ Desktop: `Score: 78/100`
+ Mobile: `Score: 64/100`
+ 
+ There are a few things application developers could do to optimise this app search engine rankings.
+ Search engine's enjoy having lots of data. In this case we're missing:
+ 
+ - `<meta>` tags with initial scale
+ - `alt` attributes for `<img>` we mentioned in Accesibility section as well
+ 
+ Additionally, application got 64 score for mobile devices as the font sizes are not big enough for those small devices 
+ and some buttons are smaller than 48px x 48px and therefore hard for thumbs to tap on without zooming in.
 
  ### Todos app audit
  
