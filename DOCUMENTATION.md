@@ -470,6 +470,12 @@ Main suggestions to improve performance:
  
  ##### Performance
  
+ Desktop: `Score: 100/100`
+ Mobile: `Score: 100/100`
+ Desktop 4G Throttled: `Score: 99/100`
+ Mobile 4G Throttled: `Score: 99/100`
+
+ 
  | Metrics                          | Time |
  |----------------------------------|-----:|
  | First Contentful Paint           | 0.3s |
@@ -481,10 +487,12 @@ Main suggestions to improve performance:
  
  The stats are impressive, application loads extremely fast. It's mostly due to it's simplicity, as it does not need to 
  connect with servers and databases. It's simple and powerfull. The stats above are from a non throttled desktop based 
- audit. However, even when throttled, it performs extremely fast, in ranges of 0.1-0.4s.
+ audit. However, even when throttled, it performs extremely fast, in ranges of 0.1-0.4s. One of the reasons it works
+ so efficient is because there are no additional files or adds that need to be downloaded, which would result in worse
+ performance.
  
  There are few suggestions to improve applications performance, however the gains are marginal. Some of those 
- suggestions are:
+ suggestions:
  - change priority for assets load
  - keep request counts low and transfer sizes small
  - minify JS - Potential 12KB Savings
@@ -493,20 +501,59 @@ Main suggestions to improve performance:
  
  ##### Accessibility
  
- content
+ All: `Score: 60/100`
+  
+ There is one issue which need to be addressed to improve accessibility. `<Form>` tags need to have `<label>` tags
+ associated with them. If those tags interfere with design, `<aria-label>` should be used. This way readers will read
+ them and users who see the page, won't see any label. Since UI is made in an intuitive way to input to-do's, a 
+ visible label is obsolete.
   
  ##### Best Practice
  
- content
+  All: `Score: 86/100`
+ 
+ There are two problems when it comes to best practice:
+ 
+ - HTTP/2
+ 
+ Application runs locally and we have little power over how server handles connection. It's possible to influence it but
+ it isn't as straightforward as simply installing a missing module. For the sake of clarity, I'd recommend to leave it as
+ is. However if you'd like to improve this, possibly explore HTTP/3 which has been added to major browsers in September 
+ 2019
+ - Browser errors logged
+ 
+ Application's dependency `todomvc-common` is missing `learn.json` file. 
+ In order to delete this message, an empty json file needs to be created in root folder of this project. 
  
  ##### SEO
  
- content
+ Desktop: `Score: 75/100`
+ Desktop: `Score: 60/100`
+ 
+ SEO can be improved by adding `<meta>` tags with viewport and initial-scale attributes. Also, we need to add meta 
+ description tag to describe what is this application about, to help search engines understand it better and send it to 
+ people who search for similar applications. Mobile version also needs to adjust font sizes properly as some of them
+ render smaller than 12px, which is below the border for users to see without zooming in. Some buttons are smaller than
+ 48px and therefore not easily clicable with thumb without zooming in either.
  
  ### TodoListMe vs. Todos (comparative summary)
 
  ##### Summary
+ 
+ Both applications run well. However, huge difference is visible on mobile devices with slower speed internet connections. 
+ Difference in performance is significant. Therefore I'll focus on comparing 4G simulated slower speed results.
+ 
  ##### Performance
+ 
+ | Metrics                          | Todos | TodoListMe | Todos faster (%) |
+ |----------------------------------|------:|-----------:|-----------------:|
+ | First Contentful Paint           | 1.7s  |    2.8s    |        39%       |    
+ | Speed Index                      | 1.7s  |    6.0s    |        71%       | 
+ | Time to Interactive              | 1.8s  |   10.8s    |        83%       | 
+ | Max Potential First Input Delay  | 50s   |    870s    |        94%       |
+ | First CPU Idle                   | 1.7s  |    9.9s    |        82%       |
+ | First Meaningful Paint           | 1.7s  |    2.8s    |        39%       |
+ 
  ##### Accessibility
  ##### Best Practice
  ##### SEO
