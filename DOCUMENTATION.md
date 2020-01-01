@@ -303,6 +303,19 @@ Will drop all storage and start fresh
  - [Desktop](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop.pdf)
  - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop_4g_slow.pdf)
  
+ TodoListMe is an application which allows user to:
+ - create and name separate lists of to-do's
+ - create and name categories
+ - drag and drop lists into specified categories
+ - add new to-do item to lists
+ - move to-do items to 'tomorrow' and 'later' sub category inside the list
+ - edit current to-do items
+ - clear completed items (delete)
+ - sort to-do's (alphabetically,random, top 3)
+ - sync and use to-do's across different devices (account facilities)
+ - show mobile specifc view
+ - revert recent changes
+ 
  Application performs well when run on high speed internet connection. However, the performance on slower speed connections
  suffers signigicantly, especially on mobile devices, where it only receives 44 score in performance. The other major 
  low score is Accesibility, which is only 38 and that's across all four different audits. SEO and Best Practices are 
@@ -446,10 +459,10 @@ Main suggestions to improve performance:
  
  Download Audits (.pdf):
   
-  - [Mobile](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos/todos_audit_mobile.pdf)
-  - [Mobile Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos/todos_audit_mobile_4g_slow.pdf)
-  - [Desktop](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos/todos_audit_desktop.pdf)
-  - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos/todos_audit_desktop_4g_slow.pdf)
+  - [Mobile](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos-fixed/todos_audit_mobile.pdf)
+  - [Mobile Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos-fixed/todos_audit_mobile_4g_slow.pdf)
+  - [Desktop](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos-fixed/todos-audit-desktop.pdf)
+  - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos-fixed/todos_audit_desktop_4g_slow.pdf)
  
  Application allows users to create a simple list of to-do's. It stores data locally in client browser. It allows item 
  edits. It's simple implementation and lack of ads displayed with it, alows a maximum performance on both mobile and 
@@ -459,35 +472,32 @@ Main suggestions to improve performance:
  
  | Metrics                          | Time |
  |----------------------------------|-----:|
- | First Contentful Paint           | 0.2s |
- | Speed Index                      | 0.2s |
- | Time to Interactive              | 0.2s |
- | Max Potential First Input Delay  | 30s  |
- | First CPU Idle                   | 0.2s |
- | First Meaningful Paint           | 0.2s |
+ | First Contentful Paint           | 0.3s |
+ | Speed Index                      | 0.3s |
+ | Time to Interactive              | 0.4s |
+ | Max Potential First Input Delay  | 40s  |
+ | First CPU Idle                   | 0.4s |
+ | First Meaningful Paint           | 0.3s |
  
  The stats are impressive, application loads extremely fast. It's mostly due to it's simplicity, as it does not need to 
  connect with servers and databases. It's simple and powerfull. The stats above are from a non throttled desktop based 
- audit. However, even when throttled, it performs extremely fast, in ranges of 0.1-0.2s.
+ audit. However, even when throttled, it performs extremely fast, in ranges of 0.1-0.4s.
  
  There are few suggestions to improve applications performance, however the gains are marginal. Some of those 
  suggestions are:
- - minify JS - 12KB Savings
- - remove unused CSS - 8KB Savings
- - enable text compression - 25KB Savings
+ - change priority for assets load
+ - keep request counts low and transfer sizes small
+ - minify JS - Potential 12KB Savings
+ - remove unused CSS - Potential 8KB Savings
+ - enable text compression - Potential 25KB Savings
  
  ##### Accessibility
  
- All test that are applicable to this application passed. This application is accessible to a wide variety of users.
- There are aria-labels included, the page contains a heading, skip link, or landmark region, document has the title,
- `<html>` has lang attribute, labels are present with all form inputs and zooming is allowed for all users who rely on 
- screen magnification.
+ content
   
  ##### Best Practice
  
- Application was tested on local machine and served through IDE. It did not connect over secure HTTPS connection and 
- HTTP/2 and it's reflected on the audit. However, apart from this minor technicality, the rest of the practices are in 
- place and 
+ content
  
  ##### SEO
  
