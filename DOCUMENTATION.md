@@ -545,16 +545,30 @@ Main suggestions to improve performance:
  
  ##### Performance
  
- | Metrics                          | Todos | TodoListMe | Todos faster (%) |
- |----------------------------------|------:|-----------:|-----------------:|
- | First Contentful Paint           | 1.7s  |    2.8s    |        39%       |    
- | Speed Index                      | 1.7s  |    6.0s    |        71%       | 
- | Time to Interactive              | 1.8s  |   10.8s    |        83%       | 
- | Max Potential First Input Delay  | 50s   |    870s    |        94%       |
- | First CPU Idle                   | 1.7s  |    9.9s    |        82%       |
- | First Meaningful Paint           | 1.7s  |    2.8s    |        39%       |
+ | Metrics                          | Todos | TodoListMe | Todos faster |
+ |----------------------------------|------:|-----------:|-------------:|
+ | First Contentful Paint           | 1.7s  |    2.8s    |        39%   |    
+ | Speed Index                      | 1.7s  |    6.0s    |        71%   | 
+ | Time to Interactive              | 1.8s  |   10.8s    |        83%   | 
+ | Max Potential First Input Delay  | 50s   |    870s    |        94%   |
+ | First CPU Idle                   | 1.7s  |    9.9s    |        82%   |
+ | First Meaningful Paint           | 1.7s  |    2.8s    |        39%   |
+ 
+ As we can see, Todos is diametrically faster. There are few key differences:
+ 
+ - it's a smaller application with client side "database"
+ - it does not have to load any additional code, e.g. adds
+ - it has much less features, therefore less lines of code to execute
+ - it does not connect with any other API's e.g. twitter, facebook, google, oAuth
+
+ Additionally, the TodoListMe App isn't specifically mobile ready. It isn't designed with mobile first approach. This is
+ a major thing in 2020 and it should be changed first, in order to keep up with other competitors. Todos stands out with
+ it's clear design, yet it looses massively on other fronts like features, as it certainly has not many.
  
  ##### Accessibility
+ 
+ 
+ 
  ##### Best Practice
  ##### SEO
 
