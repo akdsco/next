@@ -1,6 +1,6 @@
 #  Introduction
 
-In browser to-do application which helps you organise your day of work.
+A to-do application, which helps you organise your day of work.
 The main idea is to keep track of your daily tasks. Finish them each day and set new for next. 
 
 Features:
@@ -119,13 +119,13 @@ function Controller (model, view) {
 }
 ```
 
-All the bindings reffer to functions inside `controller.js`. Those functions contain all calls necessary for actions.
-Depending on action, controller will call methods from `model.js` and `view.js` and this way update local database and
+All the bindings refer to functions inside `controller.js`. Those functions contain all calls necessary for actions.
+Depending on action, controller will call methods from `model.js`, `view.js`, and this way update the local database and
 re-render any changes in the view. It contains specific chains of commands needed for actions like `addItem` or `editItem`
 `view.js`
 
 This file contains all methods which purpose is to manipulate DOM elements and change the way the application displays 
-current data from database. For example, if user completes a task, it will trigger event, which will be picked up by 
+current data from database. For example, if a user completes a task, it will trigger event, which will be picked up by 
 `controller.js`, which in turn will eventually call `view.js` method to update the to-do item.
 
 Most methods in `view.js` are private. The interface comprises of `render` and `bind` methods.
@@ -175,19 +175,19 @@ View.prototype.render = function (viewCmd, parameter) {
 };
 ```
 
-Application uses custom templates to create to-do's and update information like the amount of active to-do's due to be 
+The application uses custom templates to create to-do's and update information like the amount of active to-do's due to be 
 completed. All templates are stored in:
  
 `template.js`
 
-This file contains one main template for to-do item stored as default template and is instantiated whenever template 
-object is created. There are three methods `show`, `itemCounter` and `clearCompletedButton` As described, they show all 
+This file contains one main template for to-do item stored as default template and is instantiated whenever a template 
+object is created. There are three methods `show`, `itemCounter` and `clearCompletedButton` as described; they show all 
 the to-do's, update due items counter and update clear completed button text.
 
 `model.js`
 
-`Model` is created with instace of `Store.js`. `Model` is connecting local database (`Store`) with `Controller.js`.
-Model coordinates and allows data manipulation along with CRUD persistent storage functions. It consist of methods:
+`Model` is created with instance of `Store.js`. `Model` is connecting local database (`Store`) with `Controller.js`.
+Model coordinates and allows data manipulation along with CRUD persistent storage functions. It consists of methods:
 
 - `create`
 ```
@@ -307,18 +307,18 @@ Will drop all storage and start fresh
  - create and name separate lists of to-do's
  - create and name categories
  - drag and drop lists into specified categories
- - add new to-do item to lists
+ - add a new to-do item to lists
  - move to-do items to 'tomorrow' and 'later' sub category inside the list
  - edit current to-do items
  - clear completed items (delete)
  - sort to-do's (alphabetically,random, top 3)
  - sync and use to-do's across different devices (account facilities)
- - show mobile specifc view
+ - show mobile specific view
  - revert recent changes
  
  Application performs well when run on high speed internet connection. However, the performance on slower speed connections
- suffers signigicantly, especially on mobile devices, where it only receives 44 score in performance. The other major 
- low score is Accesibility, which is only 38 and that's across all four different audits. SEO and Best Practices are 
+ suffers significantly, especially on mobile devices, where it only receives 44 score in performance. The other major 
+ low score is Accessibility, which is only 38 and that's across all four different audits. SEO and Best Practices are 
  ok but there's certainly room to improve.
  
  ##### Performance
@@ -360,8 +360,8 @@ Will drop all storage and start fresh
    | First CPU Idle                   |   9.9s |
    | First Meaningful Paint           |   2.8s |   
    
- If we compare the result, we can clearly see the slow down. The application runs the fastest on Desktop with high speed
- connection. The desktop slow 4G simulation shows slow down and further decline on Mobile. Let's examine it in %:
+ If we compare the result, we can clearly see the slowdown. The application runs the fastest on Desktop with a high speed
+ connection. The desktop slow 4G simulation shows slowdown and further decline on Mobile. Let's examine it in %:
  
  Percentage of slowdown - Desktop HS -> Desktop 4G Slow 
  
@@ -408,8 +408,8 @@ Main suggestions to improve performance:
  - change background and foreground colours so that they have sufficient contrast ratio
  - make all ID's on the page unique
  - add `<title>` to `<iframe>` and `<form>`
- - add alt atributes to all `<img>` tags
- - add lang atribute to `<html>` tag
+ - add alt attributes to all `<img>` tags
+ - add lang attribute to `<html>` tag
  
  There are also many other things that can't be checked automatically. Manual checks that can be performed are listed 
  [here](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop.pdf) on
@@ -429,13 +429,13 @@ Main suggestions to improve performance:
   
  Another security upgrade is usage of HTTP/2 which is a newer way to transport data across the internet. In order to 
  use HTTP/2 (if server hosting website is ready for HTTP/2), there's a pre-requisite, which is HTTPS. As we know, this 
- application does not use it, therefore it can't use HTTP/2 either. It's something that can help bring security on this 
+ application does not use it; therefore it can't use HTTP/2 either. It's something that can help bring security on this 
  page to a higher level.
  
  - @jQuery - vulnerable dependency
  
  It's crucial for both performance and security to use up to date software. Many times we only discover our code isn't 
- secure after we used it for some time. When we do discover that, version with insecure code gets flagged and information 
+ secure after we used it for some time. When we do discover that, a version with insecure code gets flagged and information 
  to all developers using it sent. Then it's developers job to update the software and close the open door to stop 
  possible attacks and data leaks. In case of this application, jQuery library should be updated. 
  
@@ -448,10 +448,10 @@ Main suggestions to improve performance:
  Search engine's enjoy having lots of data. In this case we're missing:
  
  - `<meta>` tags with initial scale
- - `alt` attributes for `<img>` we mentioned in Accesibility section as well
+ - `alt` attributes for `<img>` we mentioned in the Accessibility section as well
  
- Additionally, application got 64 score for mobile devices as the font sizes are not big enough for those small devices 
- and some buttons are smaller than 48px x 48px and therefore hard for thumbs to tap on without zooming in.
+ Additionally, the application received 64 score for mobile devices as the font sizes are not big enough for those small 
+ devices and some buttons are smaller than 48px x 48px and therefore hard for thumbs to tap on without zooming in.
 
  ### Todos app audit
  
@@ -485,16 +485,16 @@ Main suggestions to improve performance:
  | First CPU Idle                   | 0.4s |
  | First Meaningful Paint           | 0.3s |
  
- The stats are impressive, application loads extremely fast. It's mostly due to it's simplicity, as it does not need to 
- connect with servers and databases. It's simple and powerfull. The stats above are from a non throttled desktop based 
+ The stats are impressive, application loads extremely fast. It's mostly due to its simplicity, as it does not need to 
+ connect with servers and databases. It's simple and powerful. The stats above are from a non throttled desktop-based 
  audit. However, even when throttled, it performs extremely fast, in ranges of 0.1-0.4s. One of the reasons it works
  so efficient is because there are no additional files or adds that need to be downloaded, which would result in worse
  performance.
  
- There are few suggestions to improve applications performance, however the gains are marginal. Some of those 
- suggestions:
+ There are few suggestions to improve applications performance. However, the gains are marginal. 
+ Some of those suggestions:
  - change priority for assets load
- - keep request counts low and transfer sizes small
+ - keep request counts low, and transfer sizes small
  - minify JS - Potential 12KB Savings
  - remove unused CSS - Potential 8KB Savings
  - enable text compression - Potential 25KB Savings
@@ -503,8 +503,8 @@ Main suggestions to improve performance:
  
  All: `Score: 60/100`
   
- There is one issue which need to be addressed to improve accessibility. `<Form>` tags need to have `<label>` tags
- associated with them. If those tags interfere with design, `<aria-label>` should be used. This way readers will read
+ There is one issue which needs to be addressed to improve accessibility. `<Form>` tags need to have `<label>` tags
+ associated with them. If those tags interfere with design, `<aria-label>` should be used. This way, readers will read
  them and users who see the page, won't see any label. Since UI is made in an intuitive way to input to-do's, a 
  visible label is obsolete.
   
@@ -516,7 +516,7 @@ Main suggestions to improve performance:
  
  - HTTP/2
  
- Application runs locally and we have little power over how server handles connection. It's possible to influence it but
+ The application runs locally and we have little power over how server handles the connection. It's possible to influence it but
  it isn't as straightforward as simply installing a missing module. For the sake of clarity, I'd recommend to leave it as
  is. However if you'd like to improve this, possibly explore HTTP/3 which has been added to major browsers in September 
  2019
@@ -534,14 +534,15 @@ Main suggestions to improve performance:
  description tag to describe what is this application about, to help search engines understand it better and send it to 
  people who search for similar applications. Mobile version also needs to adjust font sizes properly as some of them
  render smaller than 12px, which is below the border for users to see without zooming in. Some buttons are smaller than
- 48px and therefore not easily clicable with thumb without zooming in either.
+ 48px and therefore not easily clickable with thumb without zooming in either.
  
  ### TodoListMe vs. Todos (comparative summary)
 
  ##### Summary
  
- Both applications run well. However, huge difference is visible on mobile devices with slower speed internet connections. 
- Difference in performance is significant. Therefore I'll focus on comparing 4G simulated slower speed results.
+ Both applications run well. However, a huge difference is visible on mobile devices with slower speed internet 
+ connections. Difference in performance is significant. Therefore I'll focus on comparing 4G simulated slower speed 
+ results.
  
  ##### Performance
  
@@ -554,9 +555,9 @@ Main suggestions to improve performance:
  | First CPU Idle                   | 1.7s  |    9.9s    |        82%   |
  | First Meaningful Paint           | 1.7s  |    2.8s    |        39%   |
  
- As we can see, Todos is diametrically faster. There are few key differences:
+ As we can see, Todos is diametrically faster. There are a few key differences:
  
- - it's a smaller application with client side "database"
+ - it's a smaller application with client-side "database"
  - it does not have to load any additional code, e.g. adds
  - it has much less features, therefore less lines of code to execute
  - it does not connect with any other API's e.g. twitter, facebook, google, oAuth
@@ -565,9 +566,9 @@ Main suggestions to improve performance:
  For users on slow connections, external scripts dynamically injected via mentioned method, can delay page load by tens 
  of seconds.
 
- Additionally, the TodoListMe App isn't specifically mobile ready. It isn't designed with mobile first approach. This is
- a major thing in 2020 and it should be changed first, in order to keep up with other competitors. Todos stands out with
- it's clear design, yet it looses massively on other fronts like features, as it certainly has not many.
+ Additionally, the TodoListMe App isn't specifically mobile-ready. It isn't designed with mobile-first approach. This is
+ a major thing in 2020, and it should be changed first, in order to keep up with other competitors. Todos stands out with
+ it's clean design, yet it looses massively on other fronts like features, as it certainly has not many.
  
  ##### Accessibility, Best Practice, SEO
  
