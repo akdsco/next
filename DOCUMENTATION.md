@@ -560,18 +560,15 @@ Main suggestions to improve performance:
  - it does not have to load any additional code, e.g. adds
  - it has much less features, therefore less lines of code to execute
  - it does not connect with any other API's e.g. twitter, facebook, google, oAuth
+ 
+ The main issue driving TodoListMe performance down are advertisements that are injected using `document.write()` method.
+ For users on slow connections, external scripts dynamically injected via mentioned method, can delay page load by tens 
+ of seconds.
 
  Additionally, the TodoListMe App isn't specifically mobile ready. It isn't designed with mobile first approach. This is
  a major thing in 2020 and it should be changed first, in order to keep up with other competitors. Todos stands out with
  it's clear design, yet it looses massively on other fronts like features, as it certainly has not many.
  
- ##### Accessibility
+ ##### Accessibility, Best Practice, SEO
  
- 
- 
- ##### Best Practice
- ##### SEO
-
-  - files size of app
-  - response times
-  - advertisements influence over loading
+ These are the areas that can't be specifically and quantifiably compared.
