@@ -1,3 +1,5 @@
+# Bug Fixes
+
 `1. fix typing error: 'adddItem' => 'addItem'`
 
 I realised the application wasn't adding new to-do's, so I tracked down a bug that prevented from adding new items.
