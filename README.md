@@ -1,4 +1,4 @@
-# TODOS APP
+# What Next App
 
 #### 1. Installation
 
@@ -23,3 +23,47 @@ Normally, the browser keeps cookies saved even after closing tab or the browser 
 
 If you're interested to learn more about technical details and how this application works, 
 have a look at [wiki](https://github.com/akdsco/todo-list-enchance/wiki) created for this project.
+
+
+What Next App - Project Info
+=======================================
+
+Enchancing an existing application written in JavaScript
+
+* * *
+
+### Client Request
+
+Our developer left non functional application and quit the project. We need a JavaScript developer to learn about this
+project, fix it and improve it by addressing all the areas marked on the audit.
+
+Tasks to do:
+
+1. Find bugs that prevent the application from functioning.
+2. Optimise application and it's code.
+3. Add automated tests to make sure application is working correctly.
+4. Analyze performance.
+5. Write technical documentation.
+
+### Solution
+
+Initially I spend few hours to figure out how the application was written and how it works. I fixed typos and erorrs 
+that prevented it from functioning. I wrote tests using `JasmineJS` test suite. I've written missing test cases and performed
+dev tools audit. It revealed a list of things needed to be addressed in order to improve applications performance, SEO
+ranking and to implement best practices. I've addressed each and every one of them and brought audit results to 90-100%
+range. Then I wrote a documentation which describes all key information about the project. It contains information about
+MVC structure, file structure and their inner key methods explained, bug fixes I've done to improve it, test cases added
+and audit information.
+
+### Skills Learned
+
+- Take over an existing JavaScript project
+- Optimize the performance of a project using DevTools
+- Implement unit and functional tests in a web application
+
+### Technology
+
+- [JasmineJS](https://jasmine.github.io/)
+- JavaScript
+- MVC application model
+- browser developer tools
