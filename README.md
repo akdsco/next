@@ -1,17 +1,18 @@
-# What Next App
+# Todos App
 
 #### 1. Installation
 
+Pre-requisites:
+- [Node.js](https://nodejs.org/) v.12 or higher
+- NPM - v.6 or higher
+
 1. Copy this repository to your local machine. 
+2. Open terminal and navigate to directory where you have your local copy of files.
+3. Run `npm install` in terminal.
 2. Open index.html in your browser.
-3. Bookmark this local web page and reopen whenever you need it.
+3. Bookmark this local web page and reopen application whenever you need it.
 
-If you'd like to edit the application and work on it locally
-
-1. Copy this repository to your local machine.
-2. Run `npm install` from the root of application.
-
-This will install all dependecies needed. They are listed in `package.json` file.
+`npm install` will install all dependecies needed. They are listed in `package.json` file.
 After sucessful instalation, you will have access to all the files and dependecies needed to develop the application further.
 
 #### 2. Data Storage
