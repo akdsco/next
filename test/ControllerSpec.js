@@ -184,7 +184,6 @@ describe('controller', function () {
 		});
 
 		it('should update the view', function () {
-			// TODO: Mentor: this is good way to test it?
 			var todo = [
 				{id: 42, title: 'todo 1', completed: false},
 				{id: 43, title: 'todo 2', completed: true}

@@ -2,8 +2,8 @@
 ```
 To-do's application
 |   package.json                    => dependencies
+|   README.md                       => how install and start up application
 |   license.md                      => license
-|   documentation.md                => application documentation
 |   index.html                      => application start
 |
 └───js
@@ -18,6 +18,17 @@ To-do's application
 └───test
 │   │   ControllerSpec.js           => Unit tests
 │   │   SpecRunner.html             => Tests runner
+|
+└───docs
+|   |   0-Intro.md                  => intro documentation
+|   |   1-MVC.md                    => info about MVC design pattern used
+|   |   2-File Structure.md         => structure of files and how application works
+|   |   3-Bug Fixes.md              => bug fixes done to improve the application
+|   |   4-Test Cases.md             => test cases written to make sure application is running properly
+|   |   5-Audit.md                  => audit and comparative report with todolistme application
+└───audits
+|   |   all folders and files       => .pdf with information from audits run in devTools 
+
 ```
 
 `controller.js`

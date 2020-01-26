@@ -75,7 +75,20 @@ it('should toggle all todos to completed', function () {
 ```
 7: Should update the view
 ```javascript
-{}
+it('should update the view', function () {
+    var todo = [
+        {id: 42, title: 'todo 1', completed: false},
+        {id: 43, title: 'todo 2', completed: true}
+    ];
+
+    setUpModel(todo);
+    subject.setView('');
+    view.trigger('toggleAll', {completed: true});
+
+    expect(view.render).toHaveBeenCalledWith('elementComplete',
+        {id: 42, completed: true}
+    );
+});
 ```
 8: Add a new todo to the model
 ```javascript
