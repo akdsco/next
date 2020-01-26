@@ -26,9 +26,9 @@ To-do's application
 |   |   3-Bug Fixes.md              => bug fixes done to improve the application
 |   |   4-Test Cases.md             => test cases written to make sure application is running properly
 |   |   5-Audit.md                  => audit and comparative report with todolistme application
+|
 └───audits
 |   |   all folders and files       => .pdf with information from audits run in devTools 
-
 ```
 
 `controller.js`
