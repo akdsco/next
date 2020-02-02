@@ -6,10 +6,10 @@
  
  Download Audits (.pdf):
  
- - [Mobile](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_mobile.pdf)
- - [Mobile Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_mobile_4g_slow.pdf)
- - [Desktop](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop.pdf)
- - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop_4g_slow.pdf)
+ - [Mobile](https://github.com/akdsco/next/blob/master/audits/todolistme/todolistme_audit_mobile.pdf)
+ - [Mobile Throttled -- 4G Slow Sim](https://github.com/akdsco/next/blob/master/audits/todolistme/todolistme_audit_mobile_4g_slow.pdf)
+ - [Desktop](https://github.com/akdsco/next/blob/master/audits/todolistme/todolistme_audit_desktop.pdf)
+ - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/next/blob/master/audits/todolistme/todolistme_audit_desktop_4g_slow.pdf)
  
  TodoListMe is an application which allows user to:
  - create and name separate lists of to-do's
@@ -120,7 +120,7 @@ Main suggestions to improve performance:
  - add lang attribute to `<html>` tag
  
  There are also many other things that can't be checked automatically. Manual checks that can be performed are listed 
- [here](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todolistme/todolistme_audit_desktop.pdf) on
+ [here](https://github.com/akdsco/next/blob/master/audits/todolistme/todolistme_audit_desktop.pdf) on
  page 10.
  
  ##### Best Practice
@@ -161,16 +161,16 @@ Main suggestions to improve performance:
  Additionally, the application received 64 score for mobile devices as the font sizes are not big enough for those small 
  devices and some buttons are smaller than 48px x 48px and therefore hard for thumbs to tap on without zooming in.
 
- ### Todos app audit
+ ### next app audit
  
  ##### Summary
  
  Download Audits (.pdf):
   
-  - [Mobile](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos-fixed/todos_audit_mobile.pdf)
-  - [Mobile Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos-fixed/todos_audit_mobile_4g_slow.pdf)
-  - [Desktop](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos-fixed/todos-audit-desktop.pdf)
-  - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/todo-list-enchance/blob/master/audits/todos-fixed/todos_audit_desktop_4g_slow.pdf)
+  - [Mobile](https://github.com/akdsco/next/blob/master/audits/next-fixed/next_audit_mobile.pdf)
+  - [Mobile Throttled -- 4G Slow Sim](https://github.com/akdsco/next/blob/master/audits/next-fixed/next_audit_mobile_4g_slow.pdf)
+  - [Desktop](https://github.com/akdsco/next/blob/master/audits/next-fixed/next-audit-desktop.pdf)
+  - [Desktop Throttled -- 4G Slow Sim](https://github.com/akdsco/next/blob/master/audits/next-fixed/next_audit_desktop_4g_slow.pdf)
  
  Application allows users to create a simple list of to-do's. It stores data locally in client browser. It allows item 
  edits. It's simple implementation and lack of ads displayed with it, alows a maximum performance on both mobile and 
@@ -244,7 +244,7 @@ Main suggestions to improve performance:
  render smaller than 12px, which is below the border for users to see without zooming in. Some buttons are smaller than
  48px and therefore not easily clickable with thumb without zooming in either.
  
- ### TodoListMe vs. Todos (comparative summary)
+ ### TodoListMe vs. next (comparative summary)
 
  ##### Summary
  
@@ -254,7 +254,7 @@ Main suggestions to improve performance:
  
  ##### Performance
  
- | Metrics                          | Todos | TodoListMe | Todos faster |
+ | Metrics                          | next  | TodoListMe | next faster  |
  |----------------------------------|------:|-----------:|-------------:|
  | First Contentful Paint           | 1.7s  |    2.8s    |        39%   |    
  | Speed Index                      | 1.7s  |    6.0s    |        71%   | 
@@ -263,7 +263,7 @@ Main suggestions to improve performance:
  | First CPU Idle                   | 1.7s  |    9.9s    |        82%   |
  | First Meaningful Paint           | 1.7s  |    2.8s    |        39%   |
  
- As we can see, Todos is diametrically faster. There are a few key differences:
+ As we can see, next is diametrically faster. There are a few key differences:
  
  - it's a smaller application with client-side "database"
  - it does not have to load any additional code, e.g. adds
@@ -275,7 +275,7 @@ Main suggestions to improve performance:
  of seconds.
 
  Additionally, the TodoListMe App isn't specifically mobile-ready. It isn't designed with mobile-first approach. This is
- a major thing in 2020, and it should be changed first, in order to keep up with other competitors. Todos stands out with
+ a major thing in 2020, and it should be changed first, in order to keep up with other competitors. next stands out with
  it's clean design, yet it looses massively on other fronts like features, as it certainly has not many.
  
  ##### Accessibility, Best Practice, SEO
